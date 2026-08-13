@@ -6,7 +6,8 @@ livros = [["Dom Casmurro", "Machado de Assis", "01", "03"],
            ["Sítio do Picapau Amarelo", "Monteiro Lobato", "05", "05"]
 
 usuario = [["Julio", "15", "01"],
-            ["Victor", "16", "02"]]
+           ["Victor", "16", "02"]
+           ["Alisson", "33", "03"]]
 
 print("BIBLIOTECA")
 print("1 - Ver livros")

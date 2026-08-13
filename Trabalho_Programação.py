@@ -1,11 +1,13 @@
-           livros = livros = [["Dom Quixote", "Miguel de Cervantes", "01", "03"],
-         ["O Pequeno Príncipe", "Antoine de Saint-Exupéry", "02", "07"],
-         ["Harry Potter e a Pedra Filosofal", "J.K. Rowling", "03", "05"],
-         ["O Senhor dos Anéis", "J.R.R. Tolkien", "04", "04"],
-         ["1984", "George Orwell", "05", "06"]]           
+           livros = [["Python Crash Course", "Eric Matthes", "01", "03"],
+         ["Automate the Boring Stuff with Python", "Al Sweigart", "02", "04"],
+         ["Python Fluente", "Luciano Ramalho", "03", "02"],
+         ["Código Limpo", "Robert C. Martin", "04", "05"],
+         ["O Programador Pragmático", "David Thomas", "05", "03"],
+         ["Estruturas de Dados e Algoritmos em Java", "Robert Lafore", "06", "04"]]         
 
            usuario = [["Julio", "15", "01"],
                       ["Victor", "16", "02"]
+                      
                       ["Alisson", "34", "03"]]
            
            print("BIBLIOTECA")

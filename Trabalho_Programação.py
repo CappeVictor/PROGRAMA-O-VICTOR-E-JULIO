@@ -7,7 +7,9 @@
 
            usuario = [["Julio", "15", "01"],
                       ["Victor", "16", "02"]
-                      ["Alisson", "34", "03"]]
+                      ["Alisson", "34", "03"]
+                      ["Marcio", "50", "04"]
+                      ["Renato", "54", "05"]]
            
            print("BIBLIOTECA")
            print("1 - Ver livros")

@@ -7,7 +7,6 @@
 
            usuario = [["Julio", "15", "01"],
                       ["Victor", "16", "02"]
-                      
                       ["Alisson", "34", "03"]]
            
            print("BIBLIOTECA")

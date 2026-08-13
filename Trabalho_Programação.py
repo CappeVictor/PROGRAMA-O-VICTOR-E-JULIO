@@ -6,9 +6,11 @@ livros = [["Dom Casmurro", "Machado de Assis", "01", "03"],
            ["Sítio do Picapau Amarelo", "Monteiro Lobato", "05", "05"]]
 
 usuario = [["Julio", "15", "01"],
-           ["Victor", "16", "02"],
-           ["Alisson", "33", "03"]]
+           ["Victor", "15", "02"],
+           ["Alisson", "34", "03"]]
 
+while True:
+           
 print("BIBLIOTECA")
 print("1 - Ver livros")
 print("2 - Cadastrar usuario")
@@ -18,7 +20,7 @@ print("5 - Livros disponiveis")
 print("6 - Ver usuarios")
 
 opcao = input("Escolha: ")
-
+   
 if opcao == "1":
     print(f"{'Livro':<25} {'Autor':<25} {'Código':<10} {'Quantidade':>10}")
     for livro, autor, codigo, quantidade in livros:
@@ -93,6 +95,7 @@ print("3 - Emprestar livro")
 print("4 - Encontrar usuario")
 print("5 - Livros disponiveis")
 print("6 - Ver usuarios")
+print("7 - Sair")
 
 opcao = input("Escolha: ")
 
@@ -149,6 +152,10 @@ elif opcao == "6":
     print(f"{'Nome':<20} {'Idade':<10} {'ID':<10}")
     for nome, idade, id in usuario:
         print(f"{nome:<20} {idade:<10} {id:<10}")
+
+elif opcao == "7":
+           print("saindo")
+           break
 
 else:
     print("Opcao invalida.")

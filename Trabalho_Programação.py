@@ -1,9 +1,9 @@
-           livros = [["Python Crash Course", "Eric Matthes", "01", "03"],
-         ["Automate the Boring Stuff with Python", "Al Sweigart", "02", "04"],
+           livros = [["Curso Intensivo de Python", "Eric Matthes", "01", "03"],
+         ["Automatize Tarefas Maçantes com Python", "Al Sweigart", "02", "04"],
          ["Python Fluente", "Luciano Ramalho", "03", "02"],
          ["Código Limpo", "Robert C. Martin", "04", "05"],
          ["O Programador Pragmático", "David Thomas", "05", "03"],
-         ["Estruturas de Dados e Algoritmos em Java", "Robert Lafore", "06", "04"]]         
+         ["Estruturas de Dados e Algoritmos", "Robert Lafore", "06", "04"]]      
 
            usuario = [["Julio", "15", "01"],
                       ["Victor", "16", "02"]

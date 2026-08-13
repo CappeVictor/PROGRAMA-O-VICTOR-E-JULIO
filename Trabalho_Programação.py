@@ -86,7 +86,7 @@ while True:
            
            usuario = [["Julio", "15", "01"],
                       ["Victor", "16", "02"]
-                      ["Alisson", "33", "03"]]
+                      ["Alisson", "34", "03"]]
            
            print("BIBLIOTECA")
            print("1 - Ver livros")
@@ -134,10 +134,10 @@ while True:
                        ID += id
                        if id in ID:
                            print(nome, idade, id)
-                           resposta = input("Este é o seu usuario?(Sim/Não): ")
-                           if resposta == "Sim":
+                           resposta = input("Este é o seu usuario?(S/N): ")
+                           if resposta == "S":
                                print("Perfeito")
-                           elif resposta == "Não":
+                           elif resposta == "N":
                                print("Tente novamente")
                            else:
                                print("Função Invalida")

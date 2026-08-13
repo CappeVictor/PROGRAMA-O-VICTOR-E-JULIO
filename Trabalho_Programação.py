@@ -1,10 +1,9 @@
-           livros = [["Dom Casmurro", "Machado de Assis", "01", "03"],
-                      ["Harry Potter", "J.K.Rowling", "02", "07"],
-                      ["O Pequeno Principe", "Antoine de Saint-Exupéry", "03", "02"]]
-                      ["A Hora da Estrela", "Clarice Lispector", "04", "08"]
-                      ["Vidas Secas", "Graciliano Ramos", "05", "04"]
-                      ["Sítio do Picapau Amarelo", "Monteiro Lobato", "05", "05"]
-           
+           livros = livros = [["Dom Quixote", "Miguel de Cervantes", "01", "03"],
+         ["O Pequeno Príncipe", "Antoine de Saint-Exupéry", "02", "07"],
+         ["Harry Potter e a Pedra Filosofal", "J.K. Rowling", "03", "05"],
+         ["O Senhor dos Anéis", "J.R.R. Tolkien", "04", "04"],
+         ["1984", "George Orwell", "05", "06"]]           
+
            usuario = [["Julio", "15", "01"],
                       ["Victor", "16", "02"]
                       ["Alisson", "34", "03"]]

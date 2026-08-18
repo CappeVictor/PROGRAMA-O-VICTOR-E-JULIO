@@ -1,14 +1,14 @@
 import os
 def ver_livros():
     os.system('cls')
-    print(f"{'Livro':<40} {'Autor':<25} {'Código':<10} {'Quantidade':<12}")
-    for livro, autor, codigo, quantidade in livros:
-        print(f"{livro:<40} {autor:<25} {codigo:<10} {quantidade:<12}")
- 
+    print(f"{'Livro':<40} {'Autor':<25} {'Código':<10} {'Quantidade':<12} {'Faixa Etária':<12}")
+    for livro, autor, codigo, quantidade, faixa_etaria in livros:
+        print(f"{livro:<40} {autor:<25} {codigo:<10} {quantidade:<12} {faixa_etaria:<12}")
+
 def garantir_usuario(id_usuario):
     for nome, idade, ide in usuario:
         if ide == id_usuario:
-            return
+            return idade
     print("Usuario nao encontrado, cadastro necessario.")
     nome = input("Digite o seu nome de Usuario: ")
     idade = input("Digite a sua idade: ")
@@ -17,7 +17,8 @@ def garantir_usuario(id_usuario):
         idade = input("Digite a sua idade: ")
     usuario.append([nome, idade, id_usuario])
     print("Usuario cadastrado")
- 
+    return idade
+
 def cadastrar_usuario():
     os.system('cls')
     nome = input("Digite o seu nome de Usúario: ")
@@ -37,17 +38,20 @@ def cadastrar_usuario():
             usuario.append([nome, idade, id_usuario])
             print("Usuario cadastrado")
             break
- 
+
 def emprestar_livro():
     os.system('cls')
     id_usuario = input("Digite o seu id de usuario: ")
-    garantir_usuario(id_usuario)
+    idade_usuario = garantir_usuario(id_usuario)
     livro = input("Digite o nome do livro: ").upper()
     encontrado = False
     for i in range(len(livros)):
         if livro == livros[i][0]:
             encontrado = True
-            if int(livros[i][3]) > 0:
+            if int(idade_usuario) < int(livros[i][4]):
+                print("Usuario nao tem idade suficiente para este livro.")
+                print(f"Faixa etaria minima: {livros[i][4]} anos")
+            elif int(livros[i][3]) > 0:
                 livros[i][3] = str(int(livros[i][3]) - 1)
                 print("Livro emprestado.")
                 print("Livros restantes: ", end="")
@@ -57,7 +61,7 @@ def emprestar_livro():
             break
     if not encontrado:
         print("Livro nao encontrado.")
- 
+
 def devolver_livro():
     os.system('cls')
     id_usuario = input("Digite o seu id de usuario: ")
@@ -83,7 +87,7 @@ def devolver_livro():
             break
     if not encontrado:
         print("Livro nao encontrado.")
- 
+
 def encontrar_usuario():
     os.system('cls')
     tentar_novamente = True
@@ -108,41 +112,41 @@ def encontrar_usuario():
                     break
         else:
             print("ID nao encontrado.")
- 
+
 def livros_disponiveis():
     os.system('cls')
-    print(f"{'Livro':<25} {'Quantidade':>10}")
-    for livro, autor, codigo, quantidade in livros:
+    print(f"{'Livro':<25} {'Quantidade':>10} {'Faixa Etária':>14}")
+    for livro, autor, codigo, quantidade, faixa_etaria in livros:
         if int(quantidade) > 0:
-            print(f"{livro:<25} {quantidade:>10}")
- 
+            print(f"{livro:<25} {quantidade:>10} {faixa_etaria:>14}")
+
 def ver_usuarios():
     os.system('cls')
     print(f"{'Nome':<20} {'Idade':<10} {'ID':<10}")
     for nome, idade, ide in usuario:
         print(f"{nome:<20} {idade:<10} {ide:<10}")
- 
+
 def sair():
     os.system('cls')
     print("Saindo do programa...")
- 
-livros = [["CURSO INTENSIVO DE PYTHON", "ERIK MATTHES", "01", "03"],
-["AUTOMATIZE TAREFAS MAÇANTES COM PYTHON", "AL SWEIGART", "02", "04"],
-["PYTHON FLUENTE", "LUCIANO RAMALHO", "03", "02"],
-["CÓDIGO LIMPO", "ROBERT C. MARTIN", "04", "05"],
-["O PROGRAMADOR PRAGMÁTICO", "DAVID THOMAS", "05", "03"],
-["ESTRUTURAS DE DADOS E ALGORITMOS", "ROBERT LAFORE", "06", "04"]]      
- 
+
+livros = [["CURSO INTENSIVO DE PYTHON", "ERIK MATTHES", "01", "03", "12"],
+["AUTOMATIZE TAREFAS MAÇANTES COM PYTHON", "AL SWEIGART", "02", "04", "12"],
+["PYTHON FLUENTE", "LUCIANO RAMALHO", "03", "02", "16"],
+["CÓDIGO LIMPO", "ROBERT C. MARTIN", "04", "05", "16"],
+["O PROGRAMADOR PRAGMÁTICO", "DAVID THOMAS", "05", "03", "16"],
+["ESTRUTURAS DE DADOS E ALGORITMOS", "ROBERT LAFORE", "06", "04", "14"]]
+
 estoque_maximo = []
-for livro, autor, codigo, quantidade in livros:
+for livro, autor, codigo, quantidade, faixa_etaria in livros:
     estoque_maximo.append(quantidade)
- 
+
 usuario = [["Julio", "15", "01"],
 ["Victor", "16", "02"],
 ["Alisson", "34", "03"],
 ["Marcio", "50", "04"],
 ["Renato", "54", "05"]]
- 
+
 while True:
     print("BIBLIOTECA")
     print("1 - Ver livros")
@@ -154,32 +158,31 @@ while True:
     print("7 - Devolver livro")
     print("8 - Sair")
     opcao = input("Escolha: ")
- 
+
     if opcao == "1":
         ver_livros()
- 
+
     elif opcao == "2":
         cadastrar_usuario()
- 
+
     elif opcao == "3":
         emprestar_livro()
- 
+
     elif opcao == "4":
         encontrar_usuario()
- 
+
     elif opcao == "5":
         livros_disponiveis()
- 
+
     elif opcao == "6":
         ver_usuarios()
- 
+
     elif opcao == "7":
         devolver_livro()
- 
+
     elif opcao == "8":
         sair()
         break
- 
+
     else:
         print("Opcao invalida.")
- 

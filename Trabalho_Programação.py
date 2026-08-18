@@ -1,84 +1,127 @@
-           livros = [["Curso Intensivo de Python", "Eric Matthes", "01", "03"],
-         ["Automatize Tarefas Maçantes com Python", "Al Sweigart", "02", "04"],
-         ["Python Fluente", "Luciano Ramalho", "03", "02"],
-         ["Código Limpo", "Robert C. Martin", "04", "05"],
-         ["O Programador Pragmático", "David Thomas", "05", "03"],
-         ["Estruturas de Dados e Algoritmos", "Robert Lafore", "06", "04"]]      
+def ver_livros():
+    print(f"{'Livro':<40} {'Autor':<25} {'Código':<10} {'Quantidade':<12}")
+    for livro, autor, codigo, quantidade in livros:
+        print(f"{livro:<40} {autor:<25} {codigo:<10} {quantidade:<12}")
 
-           usuario = [["Julio", "15", "01"],
-                      ["Victor", "16", "02"]
-                      ["Alisson", "34", "03"]
-                      ["Marcio", "50", "04"]
-                      ["Renato", "54", "05"]]
-           
-           print("BIBLIOTECA")
-           print("1 - Ver livros")
-           print("2 - Cadastrar usuario")
-           print("3 - Emprestar livro")
-           print("4 - Encontrar usuario")
-           print("5 - Livros disponiveis")
-           print("6 - Ver usuarios")
-           print("7 - Sair")
-           
-           opcao = input("Escolha: ")
-           
-           if opcao == "1":
-               print(f"{'Livro':<25} {'Autor':<25} {'Código':<10} {'Quantidade':>10}")
-               for livro, autor, codigo, quantidade in livros:
-                   print(f"{livro:<25} {autor:<25} {codigo:<10} {quantidade:>10}")
-           
-           elif opcao == "2":
-               nome = input("Digite o seu nome de Usúario: ")
-               idade = input("Digite a sua idade: ")
-               id = int(input("Digite o seu id: "))
-               for nome, idade, id in usuario:
-                   ID = []
-                   ID += id
-               if id in ID:
-                   print("ID ja usado, tente outro")
-               else:
-                   usuario += [nome, idade, id]
-                   print("Usuario cadastrado")
-           
-           elif opcao == "3":
-               livro = input("Digite o nome do livro: ")
-               if livro in livros:
-                   livros.remove(livro)
-                   print("Livro emprestado.")
-                   print("Livros restantes:")
-                   print(livros)
-               else:
-                   print("Livro nao encontrado.")
-           
-           elif opcao == "4":
-               id_teste = int(input("Digite o id do seu usuario: "))
-               for nome, idade, id in usuario:
-                       ID = []
-                       ID += id
-                       if id in ID:
-                           print(nome, idade, id)
-                           resposta = input("Este é o seu usuario?(S/N): ")
-                           if resposta == "S":
-                               print("Perfeito")
-                           elif resposta == "N":
-                               print("Tente novamente")
-                           else:
-                               print("Função Invalida")
-           
-           elif opcao == "5":
-               print(f"{'Livro':<25} {'Quantidade':>10}")
-               for livro, autor, codigo, quantidade in livros:
-                   if int(quantidade) > 0:
-                       print(f"{livro:<25} {quantidade:>10}")
-           
-           elif opcao == "6":
-               print(f"{'Nome':<20} {'Idade':<10} {'ID':<10}")
-               for nome, idade, id in usuario:
-                   print(f"{nome:<20} {idade:<10} {id:<10}")
-           
-           elif opcao == "7":
-                      print("saindo")
-                      break
+def cadastrar_usuario():
+    nome = input("Digite o seu nome de Usúario: ")
+    idade = input("Digite a sua idade: ")
+    id_usuario = input("Digite o seu id: ")
+    ID = []
+    for nomes, idades, ide in usuario:
+        ID.append(ide)
+    if id_usuario in ID:
+        print("ID ja usado, tente outro")
+        cadastrar_usuario()
+    else:
+        usuario.append([nome, idade, id_usuario])
+        print("Usuario cadastrado")
 
-           else:
-               print("Opcao invalida.")
+def emprestar_livro():
+    livro = input("Digite o nome do livro: ").upper()
+    encontrado = False
+    for i in range(len(livros)):
+        if livro == livros[i][0]:
+            encontrado = True
+            if int(livros[i][3]) > 0:
+                livros[i][3] = str(int(livros[i][3]) - 1)
+                print("Livro emprestado.")
+                print("Livros restantes: ", end="")
+                print(livros[i][3])
+            else:
+                print("Livro indisponível.")
+            break
+    if not encontrado:
+        print("Livro nao encontrado.")
+
+def encontrar_usuario():
+    id_teste = input("Digite o id do seu usuario: ")
+    ID = []
+    for nome, idade, ide in usuario:
+        ID.append(ide)
+    if id_teste in ID:
+        for nome, idade, ide in usuario:
+            if id_teste == ide:
+                print(nome, idade, ide)
+                resposta = input("Este é o seu usuario?(S/N): ")
+                if resposta == "S":
+                    print("Perfeito")
+                elif resposta == "N":
+                    print("Tente novamente")
+                    encontrar_usuario()
+                else:
+                    print("Função Invalida")
+    else:
+        print("ID nao encontrado.")
+
+def livros_disponiveis():
+    print(f"{'Livro':<25} {'Quantidade':>10}")
+    for livro, autor, codigo, quantidade in livros:
+        if int(quantidade) > 0:
+            print(f"{livro:<25} {quantidade:>10}")
+
+def ver_usuarios():
+    print(f"{'Nome':<20} {'Idade':<10} {'ID':<10}")
+    for nome, idade, id in usuario:
+        print(f"{nome:<20} {idade:<10} {id:<10}")
+
+def sair():
+    print("Saindo do programa...")
+    
+
+
+
+
+
+livros = [["CURSO INTENSIVO DE PYTHON", "ERIK MATTHES", "01", "03"],
+["AUTOMATIZE TAREFAS MAÇANTES COM PYTHON", "AL SWEIGART", "02", "04"],
+["PYTHON FLUENTE", "LUCIANO RAMALHO", "03", "02"],
+["CÓDIGO LIMPO", "ROBERT C. MARTIN", "04", "05"],
+["O PROGRAMADOR PRAGMÁTICO", "DAVID THOMAS", "05", "03"],
+["ESTRUTURAS DE DADOS E ALGORITMOS", "ROBERT LAFORE", "06", "04"]]      
+
+usuario = [["Julio", "15", "01"],
+["Victor", "16", "02"],
+["Alisson", "34", "03"],
+["Marcio", "50", "04"],
+["Renato", "54", "05"]]
+
+while True:
+    print("BIBLIOTECA")
+    print("1 - Ver livros")
+    print("2 - Cadastrar usuario")
+    print("3 - Emprestar livro")
+    print("4 - Encontrar usuario")
+    print("5 - Livros disponiveis")
+    print("6 - Ver usuarios")
+    print("7 - Sair")
+           
+    opcao = input("Escolha: ")
+    
+           
+    if opcao == "1":
+        ver_livros()
+           
+    elif opcao == "2":
+        cadastrar_usuario()
+           
+    elif opcao == "3":
+        emprestar_livro()
+           
+    elif opcao == "4":
+        encontrar_usuario()
+           
+    elif opcao == "5":
+        livros_disponiveis()
+           
+    elif opcao == "6":
+        ver_usuarios()
+           
+    elif opcao == "7":
+        sair()
+        break
+
+    else:
+        print("Opcao invalida.")
+
+               
